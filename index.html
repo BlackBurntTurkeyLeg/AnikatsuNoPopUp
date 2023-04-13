@@ -3,7 +3,6 @@
 <html>
 <head>
 <title>Anikatsu</title> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <iframe src="https://anikatsu.me" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" allowfullscreen><script>let _op = window.open; let domain = window.location.hostname ; let allowed = []; let isblankallowed = false; function HookOpen(url,...a){ if (url.substring(0,6) == "https:" || url.substring(0,5) == "http:" || url.substring(0,6) == "about:"){ let NewUrl = new URL(url); console.log(NewUrl.protocol,NewUrl.hostname) if (NewUrl.protocol && (NewUrl.protocol == "https:"||NewUrl.protocol == "http:"||NewUrl.protocol == "about:")){ if (NewUrl.hostname == domain){ return _op(url,...a); } if (url == "about:blank" && isblankallowed){ return _op(url,...a); } for (const [key,value] of allowed.entries()){ if (NewUrl.hostname == value){ return _op(url,...a); } } } } } window.open = HookOpen; open = HookOpen;</script></iframe>
